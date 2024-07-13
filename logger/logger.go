@@ -1,7 +1,7 @@
 package logger
 
 import (
-	"go_project/bluebell/setting"
+	"bluebell/setting"
 	"net"
 	"net/http"
 	"net/http/httputil"
