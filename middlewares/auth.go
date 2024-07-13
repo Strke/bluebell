@@ -1,6 +1,7 @@
 package middlewares
 
 import (
+
 	"bluebell/controller"
 	"bluebell/pkg/jwt"
 	"github.com/gin-gonic/gin"
@@ -22,6 +23,7 @@ func JWTAuthMiddleware() func(c *gin.Context) {
 		}
 		mc, err := jwt.ParseToken(parts[1])
 		//println(mc.UserID, mc.Username)
+
 		if err != nil {
 			controller.ResponseError(c, controller.CodeInvalidToken)
 			c.Abort()

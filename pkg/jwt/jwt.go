@@ -22,7 +22,9 @@ func GenToken(userID int64) (aToken, rToken string, err error) {
 		userID,
 		"username",
 		jwt.StandardClaims{
+
 			//(time.Duration(viper.GetInt("auth.jwt_expire")) * time.Hour)
+
 			ExpiresAt: time.Now().Add(TokenExpireDuration).Unix(),
 			Issuer:    "bluebell",
 		},

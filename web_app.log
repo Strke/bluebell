@@ -152,6 +152,7 @@
 {"level":"INFO","time":"2024-07-03T15:28:42.843+0800","caller":"logger/logger.go:78","msg":"/ping","status":200,"method":"POST","path":"/ping","query":"","ip":"172.31.208.1","user-agent":"PostmanRuntime/7.39.0","errors":"","cost":0.00187517}
 {"level":"INFO","time":"2024-07-03T15:33:45.804+0800","caller":"logger/logger.go:45","msg":"init logger success"}
 {"level":"INFO","time":"2024-07-03T15:33:55.637+0800","caller":"logger/logger.go:78","msg":"/ping","status":200,"method":"POST","path":"/ping","query":"","ip":"172.31.208.1","user-agent":"PostmanRuntime/7.39.0","errors":"","cost":0.001862624}
+
 {"level":"INFO","time":"2024-07-03T17:06:12.698+0800","caller":"logger/logger.go:45","msg":"init logger success"}
 {"level":"INFO","time":"2024-07-03T17:06:31.274+0800","caller":"logger/logger.go:45","msg":"init logger success"}
 {"level":"INFO","time":"2024-07-03T17:06:49.919+0800","caller":"logger/logger.go:45","msg":"init logger success"}

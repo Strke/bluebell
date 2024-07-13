@@ -6,4 +6,5 @@ type User struct {
 	Password string `db:"password"`
 	AToken   string
 	RToken   string
+
 }

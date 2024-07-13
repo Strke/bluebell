@@ -27,8 +27,10 @@ func SignUp(p *models.ParamSignUp) (err error) {
 	return mysql.InsertUser(&U)
 }
 
+
 func Login(p *models.ParamLogin) (user *models.User, err error) {
 	user = &models.User{
+
 		Username: p.Username,
 		Password: p.Password,
 	}
@@ -42,4 +44,5 @@ func Login(p *models.ParamLogin) (user *models.User, err error) {
 	user.AToken = aToken
 	user.RToken = rToken
 	return
+
 }

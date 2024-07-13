@@ -20,6 +20,7 @@ func SetupRouter() *gin.Engine {
 
 	v1 := r.Group("/api/v1")
 	//注册业务路由
+
 	v1.POST("/signup", controller.SignUpHandler)
 	//登录业务
 	v1.POST("/login", controller.LoginHandler)
@@ -36,6 +37,7 @@ func SetupRouter() *gin.Engine {
 
 		v1.POST("/vote", controller.PostVoteController)
 	}
+
 
 	r.NoRoute(func(c *gin.Context) {
 		c.JSON(http.StatusOK, gin.H{

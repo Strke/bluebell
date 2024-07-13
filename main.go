@@ -20,7 +20,9 @@ func main() {
 	// 加载配置
 	// linux: /mnt/d/go_project/bluebell/conf/config.yaml
 	// windows: D:/go_project/bluebell/conf/config.yaml
+
 	if err := setting.Init("./conf/config.yaml"); err != nil {
+
 		fmt.Printf("load config failed, err1:%v\n", err)
 		return
 	}

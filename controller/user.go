@@ -1,6 +1,7 @@
 package controller
 
 import (
+
 	"bluebell/dao/mysql"
 	"bluebell/logic"
 	"bluebell/models"
@@ -9,6 +10,7 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/go-playground/validator"
 	"go.uber.org/zap"
+
 )
 
 func SignUpHandler(c *gin.Context) {
@@ -52,7 +54,9 @@ func LoginHandler(c *gin.Context) {
 		return
 	}
 	//2、业务处理
+
 	user, err := logic.Login(p)
+
 	if err != nil {
 		zap.L().Error("logic.Login failed", zap.String("username", p.Username), zap.Error(err))
 		ResponseError(c, CodeInvalidPassword)
@@ -60,9 +64,11 @@ func LoginHandler(c *gin.Context) {
 	}
 
 	//3、返回响应
+
 	ResponseSuccess(c, gin.H{
 		"user_id":   fmt.Sprintf("%d", user.UserID),
 		"user_name": user.Username,
 		"token":     user.AToken,
 	})
+
 }
