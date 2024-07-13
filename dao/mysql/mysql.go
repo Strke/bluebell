@@ -1,8 +1,9 @@
 package mysql
 
 import (
+
+	"bluebell/setting"
 	"fmt"
-	"go_project/bluebell/setting"
 
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/jmoiron/sqlx"

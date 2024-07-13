@@ -1,10 +1,10 @@
 package logic
 
 import (
-	"go_project/bluebell/dao/mysql"
-	"go_project/bluebell/models"
-	"go_project/bluebell/pkg/jwt"
-	snowFlake "go_project/bluebell/pkg/snowflake"
+	"bluebell/dao/mysql"
+	"bluebell/models"
+	"bluebell/pkg/jwt"
+	snowFlake "bluebell/pkg/snowflake"
 )
 
 // 存放业务逻辑的代码
@@ -27,13 +27,22 @@ func SignUp(p *models.ParamSignUp) (err error) {
 	return mysql.InsertUser(&U)
 }
 
-func Login(p *models.ParamLogin) (atoken, rtoken string, err error) {
-	user := &models.User{
+
+func Login(p *models.ParamLogin) (user *models.User, err error) {
+	user = &models.User{
+
 		Username: p.Username,
 		Password: p.Password,
 	}
 	if err = mysql.CheckUserPassword(user); err != nil {
-		return "", "", err
+		return nil, err
 	}
-	return jwt.GenToken(user.UserID)
+	aToken, rToken, err := jwt.GenToken(user.UserID)
+	if err != nil {
+		return nil, err
+	}
+	user.AToken = aToken
+	user.RToken = rToken
+	return
+
 }

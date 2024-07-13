@@ -1,23 +1,16 @@
 package mysql
 
 import (
+	"bluebell/models"
 	"crypto/md5"
 	"database/sql"
 	"encoding/hex"
-	"errors"
-	"go_project/bluebell/models"
 )
 
 // 把每一步数据库操作保存为函数
 // 用来支持logic层的调用
 
 const secret = "11111111"
-
-var (
-	ErrorUserExist    = errors.New("用户已存在")
-	ErrorUserNoExist  = errors.New("用户不存在")
-	ErrorUserPassword = errors.New("账号密码不匹配")
-)
 
 // CheckUserExist 检查指定用户是否存在
 func CheckUserExist(username string) error {
@@ -64,4 +57,12 @@ func CheckUserPassword(user *models.User) (err error) {
 		return ErrorUserPassword
 	}
 	return
+}
+
+func GetUserByID(uid int64) (user *models.User, err error) {
+	user = new(models.User)
+	sqlStr := `select user_id, username from user where user_id=?`
+	err = db.Get(user, sqlStr, uid)
+	return
+
 }

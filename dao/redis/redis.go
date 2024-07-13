@@ -1,8 +1,9 @@
 package redis
 
 import (
+
+	"bluebell/setting"
 	"fmt"
-	"go_project/bluebell/setting"
 
 	"github.com/go-redis/redis"
 )

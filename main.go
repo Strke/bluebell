@@ -1,15 +1,15 @@
 package main
 
 import (
+	"bluebell/controller"
+	"bluebell/dao/mysql"
+	"bluebell/dao/redis"
+	"bluebell/logger"
+	snowflake "bluebell/pkg/snowflake"
+	"bluebell/router"
+	"bluebell/setting"
 	"fmt"
 	_ "github.com/go-sql-driver/mysql"
-	"go_project/bluebell/controller"
-	"go_project/bluebell/dao/mysql"
-	"go_project/bluebell/dao/redis"
-	"go_project/bluebell/logger"
-	snowflake "go_project/bluebell/pkg/snowflake"
-	"go_project/bluebell/router"
-	"go_project/bluebell/setting"
 )
 
 func main() {
@@ -20,7 +20,9 @@ func main() {
 	// 加载配置
 	// linux: /mnt/d/go_project/bluebell/conf/config.yaml
 	// windows: D:/go_project/bluebell/conf/config.yaml
-	if err := setting.Init("/mnt/d/go_project/bluebell/conf/config.yaml"); err != nil {
+
+	if err := setting.Init("./conf/config.yaml"); err != nil {
+
 		fmt.Printf("load config failed, err1:%v\n", err)
 		return
 	}

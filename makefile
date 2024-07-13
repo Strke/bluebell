@@ -1,3 +1,4 @@
+
 .PHONY: all build run gotool clean help
 
 BINARY="bluebell"
@@ -23,3 +24,4 @@ help:
 	@echo "make run - 直接运行GO代码"
 	@echo "make clean - 移除二进制文件和 vim swap files"
 	@echo "make gotool - 运行go工具 `fmt`	和 `vet` "
+
