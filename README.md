@@ -24,7 +24,7 @@
 * 3、若查询到且匹配，则进行jwt的Token生成，否则，返回错误
 * 4、将生成的Token返回给客户端，用于后续的鉴权
 
-### 鉴权
+### jwt鉴权
 在生成了AccessToken和RefreshToken并发送给客户端之后，现在客户端访问路由时需要带上Token来完成服务端的认证。
 
 整个会话的流程如下：
@@ -37,12 +37,21 @@
 
 ## 社区业务
 
+### 功能1：查询所有社区信息
+* 向"/community"路由发送GET请求来调用查询功能
+* 通过sql的select语句查询community表中的community_id（社区ID）, community_name（社区名）两个字段来获取所有社区的简要信息。
 
+### 功能2：查询某个社区的详细信息
+* 向"/community/:id"路由发送GET请求，其中通过获取id值来查询指定社区的信息
+* 通过sql的select语句查询community表中指定ID的community_id, community_name, introduction, create_time 字段来获取指定社区的详细信息。
 
 ## 帖子业务
 
+### 功能1：创建帖子
 
+### 功能2：获取指定帖子的详细信息
+
+### 功能3：获取帖子列表
 
 ## 投票业务
-
 
