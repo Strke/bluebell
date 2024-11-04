@@ -55,3 +55,15 @@
 
 ## 投票业务
 
+&emsp;&emsp;对于投票业务，我们首先介绍其中用到的三种命名空间下的zset，以及其中的成员和分数对应信息
+* KeyPostTimeZSet    = "bluebell:post:time:"  //zset;命名空间为帖子创建时间，帖子ID->时间
+* KeyPostScoreZSet   = "bluebell:post:score:" //zset;命名空间为帖子分数，帖子ID->时间
+* KeyPostVotedPrefix = "bluebell:post:voted:" //zset;命名空间为PostID(使用时加上)，用户ID->投票票数
+
+<div align="center"> <img src="./images/5.png"/> </div>
+&emsp;&emsp;投票业务的具体流程如下：
+
+* 通过发送POST请求，服务端在参数校验后可以获得当前投票用户ID，当前投票帖子ID，以及该用户现在对于帖子的投票记录
+* 首先，我们通过查询TimeZset来获取帖子的查询时间，并与当前的系统时间进行比较，如果超过了一星期，我们判断用户超过了投票时间段，投票无效
+* 然后我们使用用户ID和帖子ID在VoteZset里获取用户之前的投票记录
+* 在于现在的投票记录进行比较后，我们得到了具体的投票数修改方案，并对VoteZset进行修改。
