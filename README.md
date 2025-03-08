@@ -56,8 +56,8 @@
 ## 投票业务
 
 &emsp;&emsp;对于投票业务，我们首先介绍其中用到的三种命名空间下的zset，以及其中的成员和分数对应信息
-* KeyPostTimeZSet    = "bluebell:post:time:"  //zset;命名空间为帖子创建时间，帖子ID->时间
-* KeyPostScoreZSet   = "bluebell:post:score:" //zset;命名空间为帖子分数，帖子ID->时间
+* KeyPostTimeZSet    = "bluebell:post:time"  //zset;<时间：帖子ID>
+* KeyPostScoreZSet   = "bluebell:post:score" //zset;<分数 ：帖子ID>
 * KeyPostVotedPrefix = "bluebell:post:voted:" //zset;命名空间为PostID(使用时加上)，用户ID->投票票数
 
 <div align="center"> <img src="./images/5.png"/> </div>
