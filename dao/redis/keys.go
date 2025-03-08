@@ -4,9 +4,9 @@ package redis
 
 const (
 	KeyPrefix          = "bluebell:"
-	KeyPostTimeZSet    = "bluebell:post:time:"  //zset;帖子及发帖时间为分数
-	KeyPostScoreZSet   = "bluebell:post:score:" //zset;帖子及投票的分数
-	KeyPostVotedPrefix = "bluebell:post:voted:" //zset;记录用户及投票类型，参数是post id
+	KeyPostTimeZSet    = "bluebell:post:time"  //zset;<发帖时间：帖子ID>
+	KeyPostScoreZSet   = "bluebell:post:score" //zset;<帖子得分：帖子ID>
+	KeyPostVotedPrefix = "bluebell:post:voted:" //zset;帖子ID：<用户ID：投票类型>
 )
 
 func getRedisKey(key string) string {
